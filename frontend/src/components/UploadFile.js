@@ -20,12 +20,11 @@ function UploadFile() {
         axios.post(url + '/files/', formData, axiosConfig).then(
             response => {
                 console.log(response);
+                getFileList();
             }
         ).catch(error => {
             console.log(error);
         });
-
-        getFileList();
     };
 
     const getFileList = () => {
@@ -37,6 +36,17 @@ function UploadFile() {
             console.log(error)
         });
     };
+
+    const deleteFile = (id) => {
+        axios.delete(url + '/files/' + `${id}/`).then(
+            response => {
+                console.log(response);
+                getFileList();
+            }
+        ).catch(error => {
+            console.log(error);
+        });
+    }
 
     useEffect(() => {
         getFileList();
@@ -56,7 +66,7 @@ function UploadFile() {
                         return(
                             <li className="list-group-item">
                                 <a>{file.file}</a>
-                                <a><button className="btn btn-primary btn-sm px-2 gap-3 mx-2">Delete</button></a>
+                                <button type="button" onClick={() => deleteFile(file.id)} className="btn btn-primary btn-sm px-2 gap-3 mx-2">Delete</button>
                             </li>
                         )
                     })}
