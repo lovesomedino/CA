@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 function UploadFile() {
     const [file, setFile] = useState('');
+    const [fileList, setFileList] = useState([{}]);
 
     const url = 'http://127.0.0.1:8000/api';
 
@@ -23,7 +24,23 @@ function UploadFile() {
         ).catch(error => {
             console.log(error);
         });
+
+        getFileList();
     };
+
+    const getFileList = () => {
+        axios.get(url + '/files/').then(
+            response => {
+                setFileList(response.data);
+            }
+        ).catch(error => {
+            console.log(error)
+        });
+    };
+
+    useEffect(() => {
+        getFileList();
+    }, [fileList]);
 
     return(
         <div className="px-4 py-5 my-5 text-center">
@@ -34,6 +51,16 @@ function UploadFile() {
                     <input type="file" onChange={e => setFile(e.target.files[0])} className="form-control" />
                     <button type="button" onClick={saveFile} className="btn btn-primary btn-md px-3 gap-3 mx-2">Submit</button>
                 </div>
+                <ol className="list-group list-group-numbered my-4">
+                    {fileList.map(file => {
+                        return(
+                            <li className="list-group-item">
+                                <a>{file.file}</a>
+                                <a><button className="btn btn-primary btn-sm px-2 gap-3 mx-2">Delete</button></a>
+                            </li>
+                        )
+                    })}
+                </ol>
             </div>
         </div>
     );
