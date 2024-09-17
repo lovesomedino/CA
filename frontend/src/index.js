@@ -8,11 +8,11 @@ import UploadFile from './components/UploadFile'
 
 function Router(){
   return(
-<BrowserRouter>
-    <Routes>
-      <Route exact path="/" element={<UploadFile />} />
-    </Routes>
-</BrowserRouter>
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<UploadFile />} />
+        </Routes>
+    </BrowserRouter>
   );
 }
 
