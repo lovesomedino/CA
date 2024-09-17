@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function UploadFile() {
@@ -65,7 +66,7 @@ function UploadFile() {
                     {fileList.map(file => {
                         return(
                             <li className="list-group-item">
-                                <a>{file.file}</a>
+                                <Link to={`${file.id}`}>{file.file}</Link>
                                 <button type="button" onClick={() => deleteFile(file.id)} className="btn btn-primary btn-sm px-2 gap-3 mx-2">Delete</button>
                             </li>
                         )
