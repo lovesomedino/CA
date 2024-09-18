@@ -1,18 +1,34 @@
 import 'react-data-grid/lib/styles.css';
 import DataGrid from 'react-data-grid';
-
-const columns = [
-  { key: 'id', name: 'ID' },
-  { key: 'title', name: 'Title' }
-];
-
-const rows = [
-  { id: 0, title: 'Example' },
-  { id: 1, title: 'Demo' }
-];
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
+import axios from 'axios'
 
 function GridView() {
-  return <DataGrid columns={columns} rows={rows} />;
+    const location = useLocation();
+    const fileId = location.state.id;
+
+    const url = 'http://127.0.0.1:8000/api';
+
+    const [columns, setColumns] = useState([{}]);
+    const [rows, setRows] = useState([{}]);
+
+    const getData = () => {
+        axios.get(url + '/' + fileId).then(
+            response => {
+                setColumns(response.data[0]);
+                setRows(response.data[1]);
+            }
+        ).catch(error => {
+            console.log(error);
+        });
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+    
+    return <DataGrid columns={columns} rows={rows} />;
 }
 
 export default GridView

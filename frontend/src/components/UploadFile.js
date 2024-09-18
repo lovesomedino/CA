@@ -34,7 +34,7 @@ function UploadFile() {
                 setFileList(response.data);
             }
         ).catch(error => {
-            console.log(error)
+            console.log(error);
         });
     };
 
@@ -66,7 +66,7 @@ function UploadFile() {
                     {fileList.map(file => {
                         return(
                             <li className="list-group-item">
-                                <Link to={`${file.id}`}>{file.file}</Link>
+                                <Link to={`${file.id}`} state={{ id: file.id }}>{file.file}</Link>
                                 <button type="button" onClick={() => deleteFile(file.id)} className="btn btn-primary btn-sm px-2 gap-3 mx-2">Delete</button>
                             </li>
                         )
