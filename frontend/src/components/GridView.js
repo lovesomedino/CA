@@ -3,7 +3,6 @@ import DataGrid from 'react-data-grid';
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import axios from 'axios'
-import SideBar from './SideBar';
 
 function GridView() {
     const location = useLocation();
@@ -31,7 +30,6 @@ function GridView() {
     
     return (
         <div>
-            <SideBar></SideBar>
             <DataGrid columns={columns} rows={rows} style={{marginLeft: "240px", height: "100vh"}}/>
         </div>
     );

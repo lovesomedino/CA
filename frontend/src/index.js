@@ -5,14 +5,14 @@ import '../src/styles/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import UploadFile from './components/UploadFile'
-import GridView from './components/GridView';
+import Result from './components/Result';
 
 function Router(){
   return(
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<UploadFile />} />
-          <Route path=":id" element={<GridView />} />
+          <Route path=":id" element={<Result />} />
         </Routes>
     </BrowserRouter>
   );
