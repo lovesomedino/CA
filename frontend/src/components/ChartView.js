@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 
-function Chart() {
+function ChartView() {
     const location = useLocation();
     const fileId = location.state.id;
 
@@ -12,4 +12,4 @@ function Chart() {
     );
 }
 
-export default Chart
+export default ChartView

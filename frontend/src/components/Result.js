@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import GridView from './GridView'
-import Chart from './Chart';
+import ChartView from './ChartView';
 
 function Result() {
     const [isDataGrid, setIsDataGrid] = useState(true);
@@ -41,7 +41,7 @@ function Result() {
                 <hr></hr>
             </div>
             {isDataGrid&&<GridView />}
-            {isChart&&<Chart />}
+            {isChart&&<ChartView />}
         </div>    
     );
 }
