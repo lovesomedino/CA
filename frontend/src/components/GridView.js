@@ -28,11 +28,7 @@ function GridView() {
         getData();
     }, []);
     
-    return (
-        <div>
-            <DataGrid columns={columns} rows={rows} style={{marginLeft: "240px", height: "100vh"}}/>
-        </div>
-    );
+    return <DataGrid columns={columns} rows={rows} style={{marginLeft: "240px", height: "100vh"}}/>
 }
 
 export default GridView
