@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import GridView from './GridView'
-import Analysis from './Analysis';
+import Chart from './Chart';
 
 function Result() {
     const [isDataGrid, setIsDataGrid] = useState(true);
-    const [isAnalysis, setIsAnalysis] = useState(false);
+    const [isChart, setIsChart] = useState(false);
 
     const clickDataGrid = () => {
         setIsDataGrid(true);
-        setIsAnalysis(false);
+        setIsChart(false);
     };
 
-    const clickAnalysis = () => {
+    const clickChart = () => {
         setIsDataGrid(false);
-        setIsAnalysis(true);
+        setIsChart(true);
     }
 
     return (
@@ -33,15 +33,15 @@ function Result() {
                         </button>
                     </li>
                     <li>
-                        <button onClick={clickAnalysis} className={`nav-link ${isAnalysis? "active": "link-body-emphasis"}`} style={{textAlign: "left", width: "100%"}}>
-                            Analysis
+                        <button onClick={clickChart} className={`nav-link ${isChart? "active": "link-body-emphasis"}`} style={{textAlign: "left", width: "100%"}}>
+                            Chart
                         </button>
                     </li>
                 </ul>
                 <hr></hr>
             </div>
             {isDataGrid&&<GridView />}
-            {isAnalysis&&<Analysis />}
+            {isChart&&<Chart />}
         </div>    
     );
 }
