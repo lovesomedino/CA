@@ -8,5 +8,5 @@ router.register('files', FilesViewSet, basename='files')
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('api/<int:id>', views.get_data),
+    path('api/<int:id>/grid', views.get_data_grid),
 ]

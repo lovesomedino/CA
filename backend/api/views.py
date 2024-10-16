@@ -11,7 +11,7 @@ class FilesViewSet(viewsets.ModelViewSet):
     serializer_class = FilesSerializer
 
 @api_view(['GET'])
-def get_data(request, id):
+def get_data_grid(request, id):
     selected_file = Files.objects.get(pk=id)
 
     media_root = settings.MEDIA_ROOT

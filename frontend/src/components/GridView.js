@@ -14,7 +14,7 @@ function GridView() {
     const [rows, setRows] = useState([{}]);
 
     const getData = () => {
-        axios.get(url + '/' + fileId).then(
+        axios.get(url + '/' + fileId + '/grid').then(
             response => {
                 setColumns(response.data[0]);
                 setRows(response.data[1]);
