@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 import BarChart from './charts/BarChart'
 import PieChart from './charts/PieChart'
 import LineChart from './charts/LineChart'

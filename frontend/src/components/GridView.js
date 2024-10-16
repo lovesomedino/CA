@@ -1,7 +1,7 @@
-import 'react-data-grid/lib/styles.css';
-import DataGrid from 'react-data-grid';
+import 'react-data-grid/lib/styles.css'
+import DataGrid from 'react-data-grid'
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 
 function GridView() {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import GridView from './GridView'
-import ChartView from './ChartView';
+import ChartView from './ChartView'
 
 function Result() {
     const [isDataGrid, setIsDataGrid] = useState(true);
