@@ -10,4 +10,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/<int:id>/grid', views.get_data_grid),
     path('api/<int:id>/dropdown', views.get_data_dropdown),
+    path('api/<int:id>/chart/<str:column>', views.get_data_chart),
 ]

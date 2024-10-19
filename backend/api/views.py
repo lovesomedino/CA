@@ -49,4 +49,26 @@ def get_data_dropdown(request, id):
     column_list = []
     column_list = df.iloc[0].tolist()
 
-    return Response(column_list)    
+    return Response(column_list) 
+
+@api_view(['GET'])
+def get_data_chart(request, id, column):
+    selected_file = Files.objects.get(pk=id)
+
+    media_root = settings.MEDIA_ROOT
+    file_path = media_root + '/' + str(selected_file.file)
+
+    df = pd.read_csv(file_path)
+
+    # list of selected column
+    selected_column = df[str(column)].to_list()
+
+    # labels for chart.js
+    labels = list(set(selected_column))
+
+    # counts for chart.js
+    counts = []
+    for label in labels:
+        counts.append(selected_column.count(label))
+
+    return Response([labels, counts])       
