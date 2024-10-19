@@ -36,9 +36,9 @@ function LineChart(props) {
     };
 
     const options = {
-        plugins: {
-            colors: {
-                forceOverride: true
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
     };
