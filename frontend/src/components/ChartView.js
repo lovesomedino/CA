@@ -10,37 +10,37 @@ function ChartView() {
 
     return (
         <div style={{marginLeft: "240px", height: "100vh"}}>
-            <div class="container-fluid">
-                 <div class="row">
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+            <div className="container-fluid">
+                 <div className="row">
+                    <div className="col-xl-8 col-lg-7">
+                        <div className="card shadow mb-4">
+                            <div className="card-header py-3">
+                                <h6 className="m-0 font-weight-bold text-primary">Bar Chart</h6>
                             </div>
-                            <div class="card-body">
-                                <div class="chart-bar">
+                            <div className="card-body">
+                                <div className="chart-bar">
                                     <BarChart />
                                 </div>
                             </div>
                         </div>
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                        <div className="card shadow mb-4">
+                            <div className="card-header py-3">
+                                <h6 className="m-0 font-weight-bold text-primary">Area Chart</h6>
                             </div>
-                            <div class="card-body">
-                                <div class="chart-area">
+                            <div className="card-body">
+                                <div className="chart-area">
                                     <LineChart />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Pie Chart</h6>
+                    <div className="col-xl-4 col-lg-5">
+                        <div className="card shadow mb-4">
+                            <div className="card-header py-3">
+                                <h6 className="m-0 font-weight-bold text-primary">Pie Chart</h6>
                             </div>
-                            <div class="card-body">
-                                <div class="chart-pie pt-4">
+                            <div className="card-body">
+                                <div className="chart-pie pt-4">
                                     <PieChart />
                                 </div>
                             </div>
