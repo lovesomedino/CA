@@ -33,3 +33,20 @@ def get_data_grid(request, id):
     rows = data_aoo
 
     return Response([columns, rows])
+
+@api_view(['GET'])
+def get_data_dropdown(request, id):
+    selected_file = Files.objects.get(pk=id)
+
+    media_root = settings.MEDIA_ROOT
+    file_path = media_root + '/' + str(selected_file.file)
+
+    file = open(file_path, 'r')
+    reader = csv.reader(file)
+    df = pd.DataFrame(reader)
+
+    # column list for dropdown
+    column_list = []
+    column_list = df.iloc[0].tolist()
+
+    return Response(column_list)    

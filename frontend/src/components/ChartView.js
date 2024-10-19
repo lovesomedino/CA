@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import DropDown from './DropDown'
 import BarChart from './charts/BarChart'
 import PieChart from './charts/PieChart'
 import LineChart from './charts/LineChart'
@@ -11,7 +12,11 @@ function ChartView() {
     return (
         <div style={{marginLeft: "240px", height: "100vh"}}>
             <div className="container-fluid">
-                 <div className="row">
+                <div className="d-flex align-items-center my-2">
+                    <p className="lead mb-0 me-2">Current column is</p>
+                    <DropDown />
+                </div>
+                <div className="row">
                     <div className="col-xl-8 col-lg-7">
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
