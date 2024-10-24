@@ -4,15 +4,15 @@ import './index.css';
 import '../src/styles/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
-import UploadFile from './components/UploadFile'
-import Result from './components/Result';
+import IndexPage from './pages/IndexPage';
+import FilePage from './pages/FilePage';
 
-function Router(){
-  return(
+function Router() {
+  return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<UploadFile />} />
-          <Route path=":id" element={<Result />} />
+          <Route path="/" element={<IndexPage />} />
+          <Route path=":id" element={<FilePage />} />
         </Routes>
     </BrowserRouter>
   );

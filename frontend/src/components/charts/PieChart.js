@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { Pie } from 'react-chartjs-2'
-import 'chart.js/auto'
+import { Pie } from 'react-chartjs-2';
+import 'chart.js/auto';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function PieChart(props) {
     const fileId = props.id;
@@ -15,6 +15,7 @@ function PieChart(props) {
     const getData = () => {
         axios.get(url + '/' + fileId + '/chart/' + column).then(
             response => {
+                console.log(response);
                 setLabels(response.data[0]);
                 setCounts(response.data[1]);
             }
@@ -44,7 +45,9 @@ function PieChart(props) {
         }
     };
 
-    return <Pie data={data} options={options}/>;
+    return (
+        <Pie data={data} options={options}/>
+    );
 };
 
 export default PieChart;

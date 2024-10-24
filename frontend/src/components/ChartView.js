@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
-import axios from 'axios'
 import Dropdown from 'react-bootstrap/Dropdown';
-import BarChart from './charts/BarChart'
-import PieChart from './charts/PieChart'
-import LineChart from './charts/LineChart'
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import BarChart from './charts/BarChart';
+import PieChart from './charts/PieChart';
+import LineChart from './charts/LineChart';
 
 function ChartView() {
     const location = useLocation();
@@ -18,6 +18,7 @@ function ChartView() {
     const getData = () => {
         axios.get(url + '/' + fileId + '/dropdown').then(
             response => {
+                console.log(response);
                 setSelectedColumn(response.data[0]);
                 setColumnList(response.data);
             }
@@ -93,4 +94,4 @@ function ChartView() {
     );
 }
 
-export default ChartView
+export default ChartView;

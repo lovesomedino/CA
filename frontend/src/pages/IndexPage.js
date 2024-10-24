@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function UploadFile() {
+function IndexPage() {
     const [file, setFile] = useState('');
     const [fileList, setFileList] = useState([{}]);
 
@@ -47,13 +47,13 @@ function UploadFile() {
         ).catch(error => {
             console.log(error);
         });
-    }
+    };
 
     useEffect(() => {
         getFileList();
     }, []);
 
-    return(
+    return (
         <div className="px-4 py-5 my-5 text-center">
             <h1 className="display-5 fw-bold text-body-emphasis">CSV Analysis</h1>
             <div className="col-lg-6 mx-auto">
@@ -77,4 +77,4 @@ function UploadFile() {
     );
 }
 
-export default UploadFile
+export default IndexPage;
