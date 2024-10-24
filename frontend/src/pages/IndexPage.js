@@ -31,6 +31,10 @@ function IndexPage() {
     const getFileList = () => {
         axios.get(url + '/files/').then(
             response => {
+                console.log(response);
+                for (var i = 0, l = response.data.length; i < l; i++) {
+                    response.data[i].file = response.data[i].file.split('/').pop();
+                }
                 setFileList(response.data);
             }
         ).catch(error => {
