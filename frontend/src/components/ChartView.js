@@ -79,8 +79,9 @@ function ChartView(props) {
                         </div>
                         <div className="card-body">
                             <div className="chart-pie pt-4">
-                                <PieChart id={fileId} column={selectedColumn} />                                </div>
+                                <PieChart id={fileId} column={selectedColumn} />                                
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
