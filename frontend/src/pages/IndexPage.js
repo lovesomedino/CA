@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function IndexPage() {
     const [file, setFile] = useState('');
     const [fileList, setFileList] = useState([{}]);
+    const fileInput = useRef();
 
     const url = 'http://127.0.0.1:8000/api';
 
@@ -21,6 +22,7 @@ function IndexPage() {
         axios.post(url + '/files/', formData, axiosConfig).then(
             response => {
                 console.log(response);
+                fileInput.current.value = '';
                 getFileList();
             }
         ).catch(error => {
@@ -43,7 +45,7 @@ function IndexPage() {
     };
 
     const deleteFile = (id) => {
-        axios.delete(url + '/files/' + `${id}/`).then(
+        axios.delete(url + `/files/${id}/`).then(
             response => {
                 console.log(response);
                 getFileList();
@@ -63,7 +65,7 @@ function IndexPage() {
             <div className="col-lg-6 mx-auto">
                 <p className="lead mb-4">Upload your csv file.</p>
                 <div className="d-flex">
-                    <input type="file" onChange={e => setFile(e.target.files[0])} className="form-control" />
+                    <input type="file" onChange={e => setFile(e.target.files[0])} ref={fileInput} className="form-control" />
                     <button type="button" onClick={saveFile} className="btn btn-primary btn-md px-3 gap-3 mx-2">Submit</button>
                 </div>
                 <ol className="list-group list-group-numbered my-4">
