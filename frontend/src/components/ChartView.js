@@ -1,14 +1,12 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import BarChart from './charts/BarChart';
 import PieChart from './charts/PieChart';
 import LineChart from './charts/LineChart';
 
-function ChartView() {
-    const location = useLocation();
-    const fileId = location.state.id;
+function ChartView(props) {
+    const fileId = props.fileId;
 
     const url = 'http://127.0.0.1:8000/api';
 

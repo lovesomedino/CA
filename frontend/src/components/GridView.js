@@ -1,13 +1,10 @@
 import 'react-data-grid/lib/styles.css';
 import DataGrid from 'react-data-grid';
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-function GridView() {
-    const location = useLocation();
-    const fileId = location.state.id;
-
+function GridView(props) {
+    const fileId = props.fileId;
     const url = 'http://127.0.0.1:8000/api';
 
     const [columns, setColumns] = useState([{}]);

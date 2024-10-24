@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import GridView from '../components/GridView';
 import ChartView from '../components/ChartView';
 
 function FilePage() {
+    const location = useLocation();
+    const fileId = location.state.id;
+
     const [isDataGrid, setIsDataGrid] = useState(true);
     const [isChart, setIsChart] = useState(false);
 
@@ -38,8 +41,8 @@ function FilePage() {
                 </ul>
                 <hr></hr>
             </div>
-            {isDataGrid&&<GridView />}
-            {isChart&&<ChartView />}
+            {isDataGrid&&<GridView fileId={fileId} />}
+            {isChart&&<ChartView fileId={fileId} />}
         </div>    
     );
 }
