@@ -17,20 +17,15 @@ def get_data_grid(request, id):
     media_root = settings.MEDIA_ROOT
     file_path = media_root + '/' + str(selected_file.file)
 
-    file = open(file_path, 'r')
-    reader = csv.reader(file)
-    df = pd.DataFrame(reader)
-
-    data_aoo = df.to_dict('records')
+    df = pd.read_csv(file_path)
 
     # columns
     columns = []
-    for key, name in data_aoo[0].items():
-        columns.append(dict(key=key, name=name))
+    for column in df.columns:
+        columns.append({"field": column})
 
     # rows
-    data_aoo.pop(0)
-    rows = data_aoo
+    rows = df.to_dict(orient = 'records')
 
     return Response([columns, rows])
 

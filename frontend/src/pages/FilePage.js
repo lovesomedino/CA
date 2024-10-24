@@ -41,8 +41,10 @@ function FilePage() {
                 </ul>
                 <hr></hr>
             </div>
-            {isDataGrid&&<GridView fileId={fileId} />}
-            {isChart&&<ChartView fileId={fileId} />}
+            <div style={{marginLeft: "240px"}}>
+                {isDataGrid&&<GridView fileId={fileId} />}
+                {isChart&&<ChartView fileId={fileId} />}
+            </div>
         </div>    
     );
 }

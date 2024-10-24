@@ -1,5 +1,6 @@
-import 'react-data-grid/lib/styles.css';
-import DataGrid from 'react-data-grid';
+import { AgGridReact } from 'ag-grid-react';
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-quartz.css";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -7,14 +8,15 @@ function GridView(props) {
     const fileId = props.fileId;
     const url = 'http://127.0.0.1:8000/api';
 
-    const [columns, setColumns] = useState([{}]);
-    const [rows, setRows] = useState([{}]);
+    const [colDefs, setColDefs] = useState([{}]);
+    const [rowData, setRowData] = useState([{}]);
 
     const getData = () => {
         axios.get(url + '/' + fileId + '/grid').then(
             response => {
-                setColumns(response.data[0]);
-                setRows(response.data[1]);
+                console.log(response);
+                setColDefs(response.data[0]);
+                setRowData(response.data[1]);
             }
         ).catch(error => {
             console.log(error);
@@ -25,8 +27,15 @@ function GridView(props) {
         getData();
     }, []);
     
+    const autoSizeStrategy = {
+        type: 'fitGridWidth',
+        defaultMinWidth: 100,
+    };
+
     return (
-        <DataGrid columns={columns} rows={rows} style={{marginLeft: "240px", height: "100vh"}}/>
+        <div className="ag-theme-quartz" style={{padding: "10px", width: `calc(100vw - 240px)`, height: "100vh"}}>
+            <AgGridReact rowData={rowData} columnDefs={colDefs} autoSizeStrategy={autoSizeStrategy} />
+        </div>
     );
 }
 
