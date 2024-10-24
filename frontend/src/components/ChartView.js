@@ -33,57 +33,54 @@ function ChartView(props) {
     };
 
     return (
-        <div style={{marginLeft: "240px", height: "100vh"}}>
-            <div className="container-fluid">
-                <div className="d-flex align-items-center my-2">
-                    <p className="lead mb-0 me-2">Current column is</p>
-                    <Dropdown>
-                        <Dropdown.Toggle id="dropdown-basic">
-                            {selectedColumn}
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            {columnList.map(column => {
-                                return(
-                                    <Dropdown.Item onClick={()=>{DropDownClick(column)}}>{column}</Dropdown.Item>
-                                )
-                            })}
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </div>
-                <div className="row">
-                    <div className="col-xl-8 col-lg-7">
-                        <div className="card shadow mb-4">
-                            <div className="card-header py-3">
-                                <h6 className="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                            </div>
-                            <div className="card-body">
-                                <div className="chart-bar">
-                                    <BarChart id={fileId} column={selectedColumn} />
-                                </div>
-                            </div>
+        <div className="container-fluid">
+            <div className="d-flex align-items-center my-2">
+                <p className="lead mb-0 me-2">Current column is</p>
+                <Dropdown>
+                    <Dropdown.Toggle id="dropdown-basic">
+                        {selectedColumn}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {columnList.map(column => {
+                            return(
+                                <Dropdown.Item onClick={()=>{DropDownClick(column)}}>{column}</Dropdown.Item>
+                            )
+                        })}
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>
+            <div className="row">
+                <div className="col-xl-8 col-lg-7">
+                    <div className="card mb-4">
+                        <div className="card-header py-3">
+                            <h6 className="m-0 font-weight-bold text-primary">Bar Chart</h6>
                         </div>
-                        <div className="card shadow mb-4">
-                            <div className="card-header py-3">
-                                <h6 className="m-0 font-weight-bold text-primary">Line Chart</h6>
-                            </div>
-                            <div className="card-body">
-                                <div className="chart-area">
-                                    <LineChart id={fileId} column={selectedColumn} />
-                                </div>
+                        <div className="card-body">
+                            <div className="chart-bar">
+                                <BarChart id={fileId} column={selectedColumn} />
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-5">
-                        <div className="card shadow mb-4">
-                            <div className="card-header py-3">
-                                <h6 className="m-0 font-weight-bold text-primary">Pie Chart</h6>
-                            </div>
-                            <div className="card-body">
-                                <div className="chart-pie pt-4">
-                                    <PieChart id={fileId} column={selectedColumn} />
-                                </div>
+                    <div className="card mb-4">
+                        <div className="card-header py-3">
+                            <h6 className="m-0 font-weight-bold text-primary">Line Chart</h6>
+                        </div>
+                        <div className="card-body">
+                            <div className="chart-area">
+                                <LineChart id={fileId} column={selectedColumn} />
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="col-xl-4 col-lg-5">
+                    <div className="card mb-4">
+                        <div className="card-header py-3">
+                            <h6 className="m-0 font-weight-bold text-primary">Pie Chart</h6>
+                        </div>
+                        <div className="card-body">
+                            <div className="chart-pie pt-4">
+                                <PieChart id={fileId} column={selectedColumn} />                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
