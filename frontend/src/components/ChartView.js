@@ -7,7 +7,6 @@ import LineChart from './charts/LineChart';
 
 function ChartView(props) {
     const fileId = props.fileId;
-
     const url = 'http://127.0.0.1:8000/api';
 
     const [selectedColumn, setSelectedColumn] = useState('');
