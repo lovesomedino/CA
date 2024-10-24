@@ -8,8 +8,8 @@ function GridView(props) {
     const fileId = props.fileId;
     const url = 'http://127.0.0.1:8000/api';
 
-    const [colDefs, setColDefs] = useState([{}]);
-    const [rowData, setRowData] = useState([{}]);
+    const [colDefs, setColDefs] = useState(null);
+    const [rowData, setRowData] = useState(null);
 
     const getData = () => {
         axios.get(url + '/' + fileId + '/grid').then(
